@@ -1,0 +1,126 @@
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<title>Fairdyne — Character Select</title>
+	<link rel="stylesheet" href="common/css/undertale.css">
+
+	<style>
+		html, body {
+			height: 100%;
+		}
+
+		body {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100%;
+			box-sizing: border-box;
+			padding-bottom: 80px;
+		}
+
+		.prompt {
+			font-size: 16px;
+			margin: 0 0 40px;
+			letter-spacing: 1px;
+		}
+
+		.roster {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.roster li {
+			margin: 0 0 24px;
+		}
+
+		.roster a {
+			display: flex;
+			align-items: flex-start;
+			gap: 14px;
+			color: white;
+			text-decoration: none;
+		}
+
+		.roster a:hover {
+			color: white;
+		}
+
+		.roster .heart {
+			color: #c00;
+			font-size: 18px;
+			line-height: 22px;
+			flex-shrink: 0;
+			visibility: hidden;
+		}
+
+		.roster a:hover .heart {
+			visibility: visible;
+		}
+
+		.roster .name {
+			font-size: 18px;
+			line-height: 22px;
+		}
+
+		.roster a:hover .name {
+			color: #eee;
+		}
+
+		.roster .desc {
+			font-size: 11px;
+			color: #888;
+			margin-top: 3px;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<p class="prompt">* Who do you want to fight?</p>
+
+	<ul class="roster">
+		<li>
+			<a href="undyne/">
+				<span class="heart">♥</span>
+				<div>
+					<div class="name">Undyne</div>
+					<div class="desc">Captain of the Royal Guard</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="mettaton/">
+				<span class="heart">♥</span>
+				<div>
+					<div class="name">Mettaton</div>
+					<div class="desc">Hottest Robot in Showbiz</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="papyrus/">
+				<span class="heart">♥</span>
+				<div>
+					<div class="name">Papyrus</div>
+					<div class="desc">The Great Papyrus</div>
+				</div>
+			</a>
+		</li>
+	</ul>
+
+	<div class="bottom-credits">
+		<p>
+			<span><span id="fairdyne">Fairdyne</span> v.0.99, by <a href="/">Alexander Dignan</a>.</span>
+			<br />
+			<span>Undertale &copy; 2015 Toby Fox.</span>
+		</p>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+var attacks = {
+
+	p_ag1: p_ag1,
+	p_ag2: p_ag2,
+	p_ag3: p_ag3,
+	p_ag4: p_ag4,
+	p_sp1: p_sp1,
+	p_ag5: p_ag5,
+	p_ag6: p_ag6,
+	p_sp2: p_sp2,
+	p_ag7: p_ag7,
+	p_ag8: p_ag8,
+
+	p_m_ag1: p_m_ag1,
+	p_m_ag2: p_m_ag2,
+	p_m_ag3: p_m_ag3,
+	p_m_ag4: p_m_ag4,
+	p_m_sp1: p_m_sp1,
+	p_m_ag5: p_m_ag5,
+	p_m_ag6: p_m_ag6,
+	p_m_sp2: p_m_sp2,
+	p_m_ag7: p_m_ag7,
+	p_m_ag8: p_m_ag8,
+
+	p_h_ag1: p_h_ag1,
+	p_h_ag2: p_h_ag2,
+	p_h_ag3: p_h_ag3,
+	p_h_ag4: p_h_ag4,
+	p_h_sp1: p_h_sp1,
+	p_h_ag5: p_h_ag5,
+	p_h_ag6: p_h_ag6,
+	p_h_sp2: p_h_sp2,
+	p_h_ag7: p_h_ag7,
+	p_h_ag8: p_h_ag8,
+
+};
