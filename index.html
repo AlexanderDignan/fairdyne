@@ -23,57 +23,69 @@
 
 		.prompt {
 			font-size: 16px;
-			margin: 0 0 40px;
+			margin: 0 0 32px;
 			letter-spacing: 1px;
 		}
 
 		.roster {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
-
-		.roster li {
-			margin: 0 0 24px;
-		}
-
-		.roster a {
 			display: flex;
-			align-items: flex-start;
-			gap: 14px;
-			color: white;
-			text-decoration: none;
+			gap: 48px;
+			align-items: flex-end;
 		}
 
-		.roster a:hover {
-			color: white;
+		.character {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			cursor: pointer;
+			opacity: 0.4;
+			transition: opacity 0.1s;
+			width: 160px;
 		}
 
-		.roster .heart {
+		.character.selected {
+			opacity: 1;
+		}
+
+		.character img {
+			height: 200px;
+			object-fit: contain;
+			object-position: bottom;
+			display: block;
+		}
+
+		.character .label {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 16px;
+		}
+
+		.heart {
 			color: #c00;
-			font-size: 18px;
-			line-height: 22px;
-			flex-shrink: 0;
 			visibility: hidden;
 		}
 
-		.roster a:hover .heart {
+		.character.selected .heart {
 			visibility: visible;
 		}
 
-		.roster .name {
-			font-size: 18px;
-			line-height: 22px;
+		.character .desc {
+			font-size: 10px;
+			color: #555;
+			text-align: center;
 		}
 
-		.roster a:hover .name {
-			color: #eee;
+		.character.selected .desc {
+			color: #999;
 		}
 
-		.roster .desc {
+		.hint {
 			font-size: 11px;
-			color: #888;
-			margin-top: 3px;
+			color: #444;
+			margin: 20px 0 0;
+			letter-spacing: 1px;
 		}
 	</style>
 
@@ -83,35 +95,34 @@
 
 	<p class="prompt">* Who do you want to fight?</p>
 
-	<ul class="roster">
-		<li>
-			<a href="undyne/">
-				<span class="heart">♥</span>
-				<div>
-					<div class="name">Undyne</div>
-					<div class="desc">Captain of the Royal Guard</div>
-				</div>
-			</a>
-		</li>
-		<li>
-			<a href="mettaton/">
-				<span class="heart">♥</span>
-				<div>
-					<div class="name">Mettaton</div>
-					<div class="desc">Hottest Robot in Showbiz</div>
-				</div>
-			</a>
-		</li>
-		<li>
-			<a href="papyrus/">
-				<span class="heart">♥</span>
-				<div>
-					<div class="name">Papyrus</div>
-					<div class="desc">The Great Papyrus</div>
-				</div>
-			</a>
-		</li>
-	</ul>
+	<div class="roster">
+		<div class="character selected" data-index="0">
+			<img src="undyne/img/undyne.png" alt="Undyne">
+			<div class="label">
+				<span class="heart">&#9829;</span>
+				<span>Undyne</span>
+			</div>
+			<div class="desc">Captain of the Royal Guard</div>
+		</div>
+		<div class="character" data-index="1">
+			<img src="mettaton/img/Mettaton_static.png" alt="Mettaton">
+			<div class="label">
+				<span class="heart">&#9829;</span>
+				<span>Mettaton</span>
+			</div>
+			<div class="desc">Hottest Robot in Showbiz</div>
+		</div>
+		<div class="character" data-index="2">
+			<img src="papyrus/img/papyrus.png" alt="Papyrus">
+			<div class="label">
+				<span class="heart">&#9829;</span>
+				<span>Papyrus</span>
+			</div>
+			<div class="desc">The Great Papyrus</div>
+		</div>
+	</div>
+
+	<p class="hint">&#8592; &#8594; to choose &nbsp;&nbsp; Enter to fight</p>
 
 	<div class="bottom-credits">
 		<p>
@@ -120,6 +131,39 @@
 			<span>Undertale &copy; 2015 Toby Fox.</span>
 		</p>
 	</div>
+
+	<script>
+		var urls = ['undyne/index.html', 'mettaton/index.html', 'papyrus/index.html'];
+		var chars = document.querySelectorAll('.character');
+		var current = 0;
+
+		function select(i) {
+			chars[current].classList.remove('selected');
+			current = i;
+			chars[current].classList.add('selected');
+		}
+
+		function go() {
+			window.location.href = urls[current];
+		}
+
+		chars.forEach(function(el) {
+			el.addEventListener('mouseenter', function() {
+				select(parseInt(el.dataset.index));
+			});
+			el.addEventListener('click', go);
+		});
+
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+				if (current > 0) select(current - 1);
+			} else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+				if (current < chars.length - 1) select(current + 1);
+			} else if (e.key === 'Enter' || e.key === 'z' || e.key === 'Z') {
+				go();
+			}
+		});
+	</script>
 
 </body>
 
