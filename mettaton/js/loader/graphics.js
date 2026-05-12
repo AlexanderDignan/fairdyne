@@ -8,9 +8,7 @@ graphics_loader
 	.add("spear",            "../undyne/img/spear.png")
 	.add("pike",             "../undyne/img/pike.png")
 	.add("speechbubble",     "../undyne/img/speechbubble.png")
-	.add("mettaton",         "img/mettaton.gif")
-	.add("mettaton_guitar",  "img/mettaton_guitar.gif")
-	.add("mettaton_static",  "img/Mettaton_static.png")
+	.add("mettaton",         "img/mettaton.png")
 
 	.on("complete", function(loader, resources) {
 		process_graphics(resources);
@@ -32,9 +30,7 @@ function process_graphics(resources) {
 	speech_bubble_texture = resources["speechbubble"].texture;
 	speech_bubble_texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
 
-	mettaton_texture        = resources["mettaton"].texture;
-	mettaton_guitar_texture = resources["mettaton_guitar"].texture;
-	mettaton_static_texture = resources["mettaton_static"].texture;
+	mettaton_texture = resources["mettaton"].texture;
 
 	markAssetLoaded("graphics");
 

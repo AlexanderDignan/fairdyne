@@ -1,8 +1,6 @@
 var boss;
 
 var mettaton_texture;
-var mettaton_guitar_texture;
-var mettaton_static_texture;
 
 var speech_bubble_texture;
 
@@ -25,8 +23,8 @@ function Mettaton() {
 	this.text_se = se_boss;
 	this.cps = 25;
 
-	var s = bossScale(mettaton_guitar_texture);
-	this.sprite = new PIXI.Sprite(mettaton_guitar_texture);
+	var s = bossScale(mettaton_texture);
+	this.sprite = new PIXI.Sprite(mettaton_texture);
 	this.sprite.anchor.set(0.5, 0);
 	this.sprite.scale.set(s, s);
 	this.sprite.position.set(320, 0);
@@ -113,18 +111,7 @@ Mettaton.prototype.advanceTextB = function() {
 
 };
 
-Mettaton.prototype.setSprite = function(mode) {
-
-	switch (mode) {
-		case "guitar":
-			this.sprite.texture = mettaton_guitar_texture; break;
-		case "static":
-			this.sprite.texture = mettaton_static_texture; break;
-	}
-	var s = bossScale(this.sprite.texture);
-	this.sprite.scale.set(s, s);
-
-};
+Mettaton.prototype.setSprite = function(mode) {};
 
 Mettaton.prototype.swing_arm = function() {
 
